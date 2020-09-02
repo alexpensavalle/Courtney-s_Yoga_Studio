@@ -7610,7 +7610,6 @@ button {
   border-bottom-right-radius:300px;
   border-bottom-style:none;
   border-bottom-width:0px;
-  border-collapse:separate;
   border-image-outset:0;
   border-image-repeat:stretch;
   border-image-slice:100%;
@@ -7661,8 +7660,8 @@ button {
   padding-right:26px;
   padding-top:13px;
   text-align:center;
-  text-align-last:center;
   text-transform:uppercase;
+  width: 48px;
 }
 
 body {
@@ -7729,4 +7728,18 @@ hr {
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
   overflow: visible;
+}
+
+.container { 
+  height: 100px;
+  position: relative;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }

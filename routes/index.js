@@ -1,7 +1,7 @@
-var router = require('express').Router();
+const router = require('express').Router();
 const passport = require('passport');
 
-// The root route renders our only view
+// The root route renders our view
 router.get('/', function(req, res) {
   res.redirect('/users');
 });
@@ -25,6 +25,11 @@ router.get('/oauth2callback', passport.authenticate(
 router.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
+});
+
+//Book an appointment:
+router.get('/book', function(req, res) {
+  res.render('/book');
 });
 
 module.exports = router;
