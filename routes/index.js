@@ -27,9 +27,4 @@ router.get('/logout', function(req, res){
   res.redirect('/');
 });
 
-//Book an appointment:
-router.get('/book', function(req, res) {
-  res.render('/book');
-});
-
 module.exports = router;

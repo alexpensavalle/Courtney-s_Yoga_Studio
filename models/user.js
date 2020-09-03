@@ -4,10 +4,16 @@ var userSchema = new mongoose.Schema({
   name: String,
   email: String,
   avatar: String,
-  googleId: String
-}, {
-  timestamps: true
-});
+  googleId: String,
+  position: {
+    type: String,
+    default: 'student'
+  },
+}, 
+
+{timestamps: true}
+
+);
 
 module.exports = mongoose.model('User', userSchema);
 

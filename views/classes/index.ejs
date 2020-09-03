@@ -1,0 +1,32 @@
+<%- include('../partials/header.ejs') -%>
+
+<h3>&nbsp&nbsp&nbsp&nbspAll Classes</h3>
+<table>
+  <tr class="tableHead">
+    <th>Date & Time:</th>
+    <th>Title</th>
+    <th>Price</th>
+    <th>Instructor</th>
+    <th>Description</th>
+    <th>Class Size</th>
+    <th>&nbsp;</th>
+  </tr>
+  <% classes.forEach(function(m) {  
+      let d = new Date();
+      let n = d.toUTCString();
+      let currentTime = new Date(n).getTime();
+      let classTime = new Date(m.dateTime).getTime();
+      if( classTime > currentTime){ %> <tr class="tableBody"></tr> <% } %>
+    <th><%= m.dateTime %></th>
+    <th><%= m.title %></th>
+    <th><%= m.price %></th>
+    <th><%= m.instructor %></th>
+    <th><%= m.description %></th>
+    <th><%= m.classSize %></th>
+    <th><a href="/classes/<%= m._id %>"><button class="detailButton">DETAILS</button></a></th>
+  </tr>
+  <% }); %>
+
+</table> 
+
+<%- include('../partials/footer.ejs') -%>

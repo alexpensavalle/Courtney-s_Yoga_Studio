@@ -14,11 +14,23 @@
   <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
-        <a href="" class="brand-logo left">&nbsp&nbspCourtney's Yoga Studio</a>
+        <a href="/" class="brand-logo left">&nbsp&nbspCourtney's Yoga Studio</a>
         <ul class="right">
+          <% if (user && user.position === 'admin') { %>
+            <li>
+              <a href="/classes/new"><i class="material-icons left">trending_flat</i>Add Class</a>
+            </li>
+              <% } %>
           <li><a href="/about"><i class="material-icons left">trending_flat</i>ABOUT</a></li>
-          <li><a href="/book"><i class="material-icons left">trending_flat</i>BOOK</a></li>
+          <li><a href="/classes"><i class="material-icons left">trending_flat</i>BOOK</a></li>
           <li><a href="/contact"><i class="material-icons left">trending_flat</i>CONTACT</a></li>
+           
+          <% if (user) { %>
+              <li>
+                <a href="/account"><i class="material-icons left">trending_flat</i>My Account</a>
+              </li>
+          <% } %>
+  
           <li>
             <% if (user) { %>
                 <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out&nbsp&nbsp&nbsp</a>

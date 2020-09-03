@@ -7683,7 +7683,6 @@ html {
 
 footer {
   background-color: #6b6b6b;
-  position: relative;
   bottom: 0;
   left: 0;
   right: 0;
@@ -7693,6 +7692,7 @@ footer {
   align-items: center;
   font-size: 12px;
   font-weight: 600;
+  flex-shrink: 0;
 }
 
 .bigMainImg {
@@ -7743,3 +7743,20 @@ hr {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
+tr.tableBody {
+  background-color: #777777;
+  height: 30px;
+  color: #efefef;
+}
+
+/*tr.tableAddBody {
+  background-color: #777777;
+  height: 100px;
+  color: #efefef;
+}
+
+div.newForm {
+  margin-top: 5px;
+}*/
+
