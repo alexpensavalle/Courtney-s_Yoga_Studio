@@ -1,7 +1,7 @@
 # Courtney's Yoga Studio
 GA Project 2:
 
-# My sister Courtney is trying to get her own yoga practice off the ground...so I want to build her a website so people can book zoom yoga sessions with her!
+My sister Courtney is trying to get her own yoga practice off the ground...so I want to build her a website so people can book zoom yoga sessions with her!
 
 ![Hifi Wireframe](https://i.imgur.com/9bKxWLK.png)
 (Based on [this website](https://adriannanaomi.com/book))
@@ -10,6 +10,11 @@ GA Project 2:
 
 ![Current Product Screenshot (Home aka index)](https://i.imgur.com/2ij4fr2.png)
 ![Current Product Screenshot (Book an Appointment)](https://i.imgur.com/Ct8tBAf.png)
+
+# Pseudocode:
+  - AAU, I can go to the website, look at the about page, and look at the class schedule
+  - AA Logged In User (OAuth), have the ability to book a class, crud my own testimonials
+  - AA Admin, I can CRUD the class schedule and testimonials
 
 # Notes for testers/GA instructors:
   - Certain features are only enabled IF you are signed in, AND IF you are and admin
