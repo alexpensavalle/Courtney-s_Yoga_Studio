@@ -6,6 +6,7 @@ module.exports = {
     show,
     create,
     delete: deleteComment,
+    edit
   }
 
   function index(req, res) {
@@ -45,6 +46,17 @@ module.exports = {
     })
   }
   
+  function edit(req, res) {
+    About.findByIdAndDelete(req.params.id, function (err, comment1) {
+      req.body.user = req.user._id;
+    });
+    let newComment = new About();
+    let d = new Date();
+    let n = d.toUTCString();
+    let checkDateConv = new Date(n).getTime();
+    let dateTime1 = checkDateConv.toString().slice(0, 16);
+    res.render('about/new', { dateTimeComment: dateTime1, commentTitle: newComment.commentTitle, comment: newComment, user: req.user });
+  }
   
   function deleteComment(req, res) {
     About.findByIdAndDelete(req.params.id, function (err, comment1) {

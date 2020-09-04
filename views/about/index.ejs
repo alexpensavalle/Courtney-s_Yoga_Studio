@@ -4,7 +4,6 @@
 
 <table>
     <tr class="tableHead">
-      <th>Date & Time:</th>
       <th>Title</th>
       <th>Comment</th>
       <th>&nbsp;</th>
@@ -17,7 +16,6 @@
         let classTime = new Date(m.dateTime).getTime();
         console.log(m);
         if( classTime > currentTime){ %> <tr class="tableBody"></tr> <% } %>
-      <th><%= m.dateTimeComment %></th>
       <th><%= m.commentTitle %></th>
       <th>&nbsp;&nbsp;<%= m.comments %></th>
       <th><a href="/about/<%= m._id %>"><button class="detailButton">Edit</button></a></th>
