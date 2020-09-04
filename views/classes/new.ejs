@@ -1,38 +1,38 @@
 <%- include('../partials/header.ejs') -%>
 
-<h1>&nbsp&nbsp&nbsp&nbspAdd New Class to Schedule</h1>
+<h3>&nbsp&nbsp&nbsp&nbspAdd New Class to Schedule</h3>
 
 <div class="newForm">
-    <table>
-        <tr class="tableAddBody">
-          <th>
-            <form action="/classes" method="POST">
-              <label>Date & Time:</label>
-                <input type="datetime-local" name="classTime" value="<%= date %>">
-              
-              <label>Class Title:</label>
-                <input type="text" name="className" autocomplete="on">
-
-              <label>Price:</label>
-                <input type="text" name="price" autocomplete="off">
-              
-              <label>Instructor:</label>
-                <select name="instructor">
-                  <option value="Courtney">Courtney</option>
-                </select>
-
-              <label>Description:</label>
-                <input type="text" name="description" autocomplete="off">
-
-              <label>Class Size:</label>
-                <input type="text" name="classSize" autocomplete="off">
-
-              <input type="submit" style="margin:10px;" value="Add Class to Schedule" id="submit" onclick="<% %>">
-              </form>
-          </th>
-        </tr>
-       
-      </table>
+      <form action="/classes" method="POST">
+        <table>
+          <tr class="tableAddBody">
+            <th>
+                <label>Date & Time:</label>
+                  <input type="datetime-local" name="dateTime" value="<%= dateTime %>">
+                
+                <label>Class Title:</label>
+                  <input type="text" name="title" autocomplete="off">
+  
+                <label>Price:</label>
+                  <input type="text" name="price" autocomplete="off">
+                
+                <label>Instructor:</label>
+                  <input type="text" name="instructor" autocomplete="off">
+                  
+                <label>Description:</label>
+                  <input type="text" name="description" autocomplete="off">
+  
+                <label>Class Size:</label>
+                  <input type="number" name="classSize" autocomplete="off">
+            </th>
+          </tr>
+        </table>
+        <div class="container">
+          <div class="center">
+          <button type="submit" style="margin:10px; width:300px; text-justify: center;" class="addButton" id="submit">Add Class to Schedule</button>
+          </div>
+        </div>
+      </form>
 </div>
 
 <%- include('../partials/footer.ejs') -%>

@@ -1,0 +1,36 @@
+<%- include('../partials/header.ejs') -%>
+
+<h3>&nbsp&nbsp&nbsp&nbspTestimonials</h3>
+
+<table>
+    <tr class="tableHead">
+      <th>Date & Time:</th>
+      <th>Title</th>
+      <th>Comment</th>
+      <th>&nbsp;</th>
+    </tr>
+  
+    <% comments.forEach(function(m) {  
+        let d = new Date();
+        let n = d.toUTCString();
+        let currentTime = new Date(n).getTime();
+        let classTime = new Date(m.dateTime).getTime();
+        console.log(m);
+        if( classTime > currentTime){ %> <tr class="tableBody"></tr> <% } %>
+      <th><%= m.dateTimeComment %></th>
+      <th><%= m.commentTitle %></th>
+      <th>&nbsp;&nbsp;<%= m.comments %></th>
+      <th><a href="/about/<%= m._id %>"><button class="detailButton">Edit</button></a></th>
+    </tr>
+    <% }); %>
+  </table>
+  
+  <% if (user && user.position === 'admin') { %>
+  <div class="container">
+    <div class="center">
+    <a href="/about/new"><button style="width:100px;"class="addButton">Add Testimonial</button></a>
+    </div>
+  </div>
+  <% } %>
+
+<%- include('../partials/footer.ejs') -%>

@@ -12,3 +12,4 @@ const db = mongoose.connection;
 db.on('connected', function() {
   console.log(`Connected to MongoDB Cloud Atlas woohoo! @ ${db.host}:${db.port}`);
 });
+

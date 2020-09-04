@@ -3,20 +3,21 @@ const Class = require('../models/class');
 module.exports = {
   index,
   new: newAppointment,
-  //show,
+  show,
   create,
-  //delete: deleteTicket
+  delete: deleteClass,
+  signup
 }
 
 function index(req, res) {
-    //console.log('Hello World');
+  //let currentDateTime = new Date().getTime();
     Class.find({}, function(err, classes) {
-    let d = new Date();
-    let n = d.toUTCString();
-    let checkDateConv = new Date(n).getTime() ;
-    let date = checkDateConv.toString().slice(0, 16);
-        res.render('classes', { title: 'Classes', section: 'All Classes', date, classes, user: req.user });
-      }).sort( { departs: 1 } );
+      let d = new Date();
+      let n = d.toUTCString();
+      let checkDateConv = new Date(n).getTime();
+      let date = checkDateConv.toString().slice(0, 16);
+        res.render('classes/index', { title: 'Classes', section: 'All Classes', date, classes, user: req.user });
+      }).sort( { dateTime: 1 } );//<--sorts in date order, ascending (1)
   }
 
 function newAppointment(req, res) {
@@ -24,23 +25,44 @@ function newAppointment(req, res) {
   let d = new Date();
   let n = d.toUTCString();
   let checkDateConv = new Date(n).getTime();
-  let date = checkDateConv.toString().slice(0, 16);
-  res.render('classes/new', { date, title: 'Class', class: newClass, user: req.user })
+  let dateTime = checkDateConv.toString().slice(0, 16);
+  console.log(newClass);
+  res.render('classes/new', { dateTime, title: 'Class', class: newClass, user: req.user });
 }
 
 function create(req, res) {
-  /*req.body.class = req.params.id
-  Class.create(req.body, function(err, tickets) {
-    res.redirect(`/classes/${req.params.id}`)
-  })*/
-  req.body.class = req.params.id;
-  Class.create(req.body, function(err, classes) {
-    res.redirect(`/classes/${req.params.id}`)
-  })
+  req.body.user = req.user._id;
+  Class.create(req.body, function(err, class1) {
+    res.redirect(`/classes/`);
+  });
 }
 
-/*function deleteTicket(req, res) {
-  Ticket.findByIdAndDelete(req.params.ticket, function (err, ticket) {
-      res.redirect(`/classes/${req.params.class}`);
+//find class by req.params.id
+function show(req, res) {
+  let d = new Date();
+  let n = d.toUTCString();
+  let checkDateConv = new Date(n).getTime();
+  let dateTime = checkDateConv.toString().slice(0, 16);
+  Class.findById(req.params.id, function(err, class1){
+    res.render('classes/show', {class1, user: req.user, dateTime});
+  })
+};
+
+function signup(req, res){
+  Class.findById(req.params.id, function(err, class1){
+    if(class1.students.length < class1.classSize && !class1.students.some(student => student._id.equals(req.user._id))){
+        class1.students.push(req.user._id);
+        class1.save(function(err){
+        res.redirect(`/classes/${req.params.id}`);
+      });
+    }else{
+      res.redirect(`/classes/${req.params.id}`);
+    }
   });
-}*/
+};
+
+function deleteClass(req, res) {
+  Class.findByIdAndDelete(req.params.id, function (err, class1) {
+      res.redirect(`/classes/`);
+  });
+}

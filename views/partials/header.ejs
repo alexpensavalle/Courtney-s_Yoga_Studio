@@ -5,15 +5,16 @@
   <title>Courtney's Yoga Studio</title>
   <!-- Google Icon Fonts used by Materialize -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
-  <link rel="stylesheet" href="stylesheets/style.css" /> 
+  <link rel="stylesheet" href="/stylesheets/style.css" /> 
   <!-- JavaScript for Materialize -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 
 <body>
+ <div id="page-container">
   <div class="navbar-fixed">
     <nav>
-      <div class="nav-wrapper">
+      <div class="nav-wrapper" id="content-wrap">
         <a href="/" class="brand-logo left">&nbsp&nbspCourtney's Yoga Studio</a>
         <ul class="right">
           <% if (user && user.position === 'admin') { %>
@@ -23,11 +24,11 @@
               <% } %>
           <li><a href="/about"><i class="material-icons left">trending_flat</i>ABOUT</a></li>
           <li><a href="/classes"><i class="material-icons left">trending_flat</i>BOOK</a></li>
-          <li><a href="/contact"><i class="material-icons left">trending_flat</i>CONTACT</a></li>
+          <!--<li><a href="/contact"><i class="material-icons left">trending_flat</i>CONTACT</a></li>-->
            
           <% if (user) { %>
               <li>
-                <a href="/account"><i class="material-icons left">trending_flat</i>My Account</a>
+                <a href="/classes/myAccount"><i class="material-icons left">trending_flat</i>My Account</a>
               </li>
           <% } %>
   

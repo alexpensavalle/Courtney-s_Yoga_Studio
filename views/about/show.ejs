@@ -1,0 +1,29 @@
+<%- include('../partials/header.ejs') -%>
+
+<h3>&nbsp&nbsp&nbsp&nbspEdit Comment</h3>
+<table>
+  <tr class="tableHead">
+    <!--<th>Date & Time:</th>-->
+    <th>Title</th>
+    <th>Comment</th>
+    <th></th>
+    <th>&nbsp;</th>
+  </tr>
+  
+  <tr class="tableBody"></tr> 
+    <!--<th><%= /*comment1.dateTimeComment*/ %></th> -->
+    <th><%= comment1.commentTitle %></th>
+    <th><%= comment1.comments %></th>
+    <% if (user && user.position === 'admin'){ %>
+    <th><form action="/about/<%= comment1._id %>?_method=PUT" method="PUT">
+        <button type="submit" style="float: right">Edit</button></form></th>
+    <th><form action="/about/<%= comment1._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete</button></form></th>
+   
+  </tr>
+
+</table> 
+
+<% } %>
+
+<%- include('../partials/footer.ejs') -%>
