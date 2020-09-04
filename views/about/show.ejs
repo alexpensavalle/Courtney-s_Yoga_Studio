@@ -15,7 +15,7 @@
     <th><%= comment1.commentTitle %></th>
     <th><%= comment1.comments %></th>
     <% if (user && user.position === 'admin'){ %>
-    <th><form action="/about/<%= comment1._id %>?_method=PUT" method="PUT">
+    <th><form action="/about/<%= comment1._id %>/edit?_method=PUT" method="POST">
         <button type="submit" style="float: right">Edit</button></form></th>
     <th><form action="/about/<%= comment1._id %>?_method=DELETE" method="POST">
         <button type="submit">Delete</button></form></th>

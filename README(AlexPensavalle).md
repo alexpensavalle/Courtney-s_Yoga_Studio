@@ -5,6 +5,7 @@ GA Project 2:
 
 ![Hifi Wireframe](https://i.imgur.com/9bKxWLK.png)
 (Based on ![this website](https://adriannanaomi.com/book))
+![Trello Board](https://trello.com/b/j7JYG84K/alex-p-project-2-management-courtneys-yoga-studio)
 
 ![Current Product Screenshot (Home aka index)](https://i.imgur.com/2ij4fr2.png)
 ![Current Product Screenshot (Book an Appointment)](https://i.imgur.com/Ct8tBAf.png)

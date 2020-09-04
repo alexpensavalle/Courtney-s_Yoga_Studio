@@ -47,15 +47,10 @@ module.exports = {
   }
   
   function edit(req, res) {
-    About.findByIdAndDelete(req.params.id, function (err, comment1) {
-      req.body.user = req.user._id;
+    About.findByIdAndUpdate(req.params.id, function (err, comment1) {
+      req.params = req.body;
+      res.render('about/edit', { dateTimeComment: dateTime1, commentTitle: newComment.commentTitle, comment1: req.params, user: req.user });
     });
-    let newComment = new About();
-    let d = new Date();
-    let n = d.toUTCString();
-    let checkDateConv = new Date(n).getTime();
-    let dateTime1 = checkDateConv.toString().slice(0, 16);
-    res.render('about/new', { dateTimeComment: dateTime1, commentTitle: newComment.commentTitle, comment: newComment, user: req.user });
   }
   
   function deleteComment(req, res) {

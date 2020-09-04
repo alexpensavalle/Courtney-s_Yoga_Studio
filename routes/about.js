@@ -5,7 +5,7 @@ const aboutCtrl = require('../controllers/about');
 router.get('/', aboutCtrl.index);
 router.get('/new', aboutCtrl.new);
 router.get('/:id', aboutCtrl.show);
-router.post('/:id', isLoggedIn, aboutCtrl.edit);
+router.put('/:id/edit', isLoggedIn, aboutCtrl.edit);
 router.post('/',isLoggedIn, aboutCtrl.create);
 router.delete('/:id',isLoggedIn, aboutCtrl.delete);
 
