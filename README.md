@@ -32,5 +32,6 @@ My sister Courtney is trying to get her own yoga practice off the ground...so I 
 # Next Steps:
   - Add more functionality while fixing existing func
 
+# Thank you to Shaw, and to my teammates for all your help!
 
 [Click Here to Visit the Site!](https://courtneyyoga.herokuapp.com/users)
